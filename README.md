@@ -7,7 +7,7 @@ Uma extensão para Google Chrome que permite preencher formulários automaticame
 - **Cadastro de dados pessoais**: Armazene seus dados pessoais e profissionais de forma segura no navegador.
 - **Preenchimento automático**: Detecte automaticamente campos em formulários web e preencha-os com um clique.
 - **Respostas com IA**: Use IA para gerar respostas profissionais ao selecionar um texto em qualquer página.
-- **Suporte a múltiplos provedores de IA**: Escolha entre OpenAI (GPT-4) ou Anthropic (Claude) para gerar respostas.
+- **Suporte a múltiplos provedores de IA**: Escolha entre OpenAI (GPT-4), Anthropic (Claude), DeepSeek (R1) ou OpenRouter (acesso a múltiplos modelos) para gerar respostas.
 
 ## Instalação
 
@@ -39,11 +39,14 @@ Uma extensão para Google Chrome que permite preencher formulários automaticame
 
 1. Clique no ícone da extensão na barra de ferramentas do Chrome.
 2. Navegue até a aba "Configurações".
-3. Selecione o provedor de IA de sua preferência (OpenAI ou Anthropic).
+3. Selecione o provedor de IA de sua preferência (OpenAI, Anthropic, DeepSeek ou OpenRouter).
 4. Insira sua chave de API:
    - Para OpenAI: Obtenha em [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
    - Para Anthropic: Obtenha em [https://console.anthropic.com/](https://console.anthropic.com/)
-5. Clique em "Salvar" para armazenar suas configurações.
+   - Para DeepSeek: Obtenha em [https://platform.deepseek.com/](https://platform.deepseek.com/)
+   - Para OpenRouter: Obtenha em [https://openrouter.ai/keys](https://openrouter.ai/keys)
+5. Se você escolher o OpenRouter, selecione também o modelo específico que deseja usar.
+6. Clique em "Salvar" para armazenar suas configurações.
 
 ## Como usar
 
@@ -69,10 +72,24 @@ Uma extensão para Google Chrome que permite preencher formulários automaticame
 - **Chaves de API**: Suas chaves de API são armazenadas localmente e usadas apenas para as solicitações aos serviços de IA.
 - **Sem rastreamento**: A extensão não rastreia sua navegação ou envia dados para servidores externos (exceto as solicitações diretas às APIs de IA).
 
+## Sobre o OpenRouter
+
+O OpenRouter é um serviço que oferece acesso unificado a centenas de modelos de IA através de um único endpoint, gerenciando automaticamente fallbacks e selecionando as opções mais econômicas. Através desta opção, você pode acessar modelos de várias empresas como OpenAI, Anthropic, Google, Meta, e Mistral, sem precisar criar contas em cada um desses serviços.
+
+A extensão inclui suporte para diversos modelos através do OpenRouter, incluindo:
+- OpenAI GPT-4o
+- Anthropic Claude 3 Opus e Sonnet
+- Google Gemini Pro e Gemini 1.5 Flash (versão gratuita)
+- Meta Llama 3 70B
+- Mistral Large
+- DeepSeek Coder, Chat e LLM 67B
+
+Ao usar o OpenRouter, você precisa apenas de uma única chave de API para acessar todos esses modelos, simplificando o gerenciamento de credenciais e permitindo escolher o modelo mais adequado para cada situação.
+
 ## Requisitos para desenvolvimento
 
 - Google Chrome versão 88 ou superior
-- Conta em um provedor de IA (OpenAI ou Anthropic) com chave de API válida
+- Conta em um provedor de IA (OpenAI, Anthropic, DeepSeek ou OpenRouter) com chave de API válida
 
 ## Solução de problemas
 
@@ -85,6 +102,7 @@ Uma extensão para Google Chrome que permite preencher formulários automaticame
 
 - Verifique se a chave de API está correta e válida.
 - Confirme se o provedor de IA selecionado está disponível e sem interrupções.
+- Se estiver usando o OpenRouter, verifique se o modelo selecionado está disponível.
 - Verifique se sua conexão com a internet está funcionando corretamente.
 
 ## Limitações conhecidas
@@ -102,6 +120,20 @@ Melhorias planejadas para versões futuras:
 - Interface para edição por lotes de múltiplos perfis
 - Sincronização entre dispositivos (via conta Google)
 - Suporte a preenchimento de formulários complexos (endereços, cartões de crédito, etc.)
+
+## Gerando os ícones da extensão
+
+A extensão inclui uma ferramenta para gerar ícones baseados no símbolo de raio (⚡) que é utilizado na interface:
+
+1. Abra o arquivo `images/generate_icons.html` em seu navegador
+2. Os ícones serão gerados automaticamente em três tamanhos: 16x16, 48x48 e 128x128 pixels
+3. Clique nos links "Baixar" abaixo de cada ícone para salvar o PNG correspondente
+4. Substitua os arquivos placeholder na pasta `images` pelos ícones baixados:
+   - `icon16.png`
+   - `icon48.png`
+   - `icon128.png`
+
+Os ícones são gerados utilizando HTML Canvas e podem ser baixados diretamente do navegador, sem necessidade de ferramentas externas.
 
 ## Licença
 

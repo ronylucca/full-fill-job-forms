@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const tabContents = document.querySelectorAll('.tab-content');
   const profileForm = document.getElementById('profileForm');
   const settingsForm = document.getElementById('settingsForm');
+  const aiProviderSelect = document.getElementById('aiProvider');
+  const openrouterModelGroup = document.getElementById('openrouterModelGroup');
   
   // Adiciona evento de clique nas abas
   tabButtons.forEach(button => {
@@ -18,6 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
       button.classList.add('active');
       document.getElementById(tabId).classList.add('active');
     });
+  });
+  
+  // Adiciona evento para mostrar/ocultar o seletor de modelo do OpenRouter
+  aiProviderSelect.addEventListener('change', () => {
+    if (aiProviderSelect.value === 'openrouter') {
+      openrouterModelGroup.style.display = 'block';
+    } else {
+      openrouterModelGroup.style.display = 'none';
+    }
   });
   
   // Carrega dados salvos ao abrir o popup
@@ -90,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const settingsData = {
       aiProvider: document.getElementById('aiProvider').value,
       apiKey: document.getElementById('apiKey').value,
+      openrouterModel: document.getElementById('openrouterModel').value,
       autoFillEnabled: document.getElementById('autoFillEnabled').checked,
       aiContextMenu: document.getElementById('aiContextMenu').checked
     };
@@ -114,6 +126,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = result.settingsData;
         document.getElementById('aiProvider').value = data.aiProvider || 'openai';
         document.getElementById('apiKey').value = data.apiKey || '';
+        
+        // Configura o modelo do OpenRouter se estiver definido
+        if (data.openrouterModel) {
+          document.getElementById('openrouterModel').value = data.openrouterModel;
+        }
+        
+        // Exibe ou oculta o seletor de modelo do OpenRouter conforme necessário
+        if (data.aiProvider === 'openrouter') {
+          openrouterModelGroup.style.display = 'block';
+        } else {
+          openrouterModelGroup.style.display = 'none';
+        }
+        
         document.getElementById('autoFillEnabled').checked = 
           data.autoFillEnabled !== undefined ? data.autoFillEnabled : true;
         document.getElementById('aiContextMenu').checked = 

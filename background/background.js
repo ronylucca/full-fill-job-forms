@@ -2,6 +2,7 @@
 let settingsData = {
   aiProvider: 'openai',
   apiKey: '',
+  openrouterModel: 'openai/gpt-4o',
   autoFillEnabled: true,
   aiContextMenu: true
 };
@@ -118,6 +119,10 @@ async function generateAIResponse(prompt) {
       return await callOpenAI(fullPrompt);
     } else if (settingsData.aiProvider === 'anthropic') {
       return await callAnthropic(fullPrompt);
+    } else if (settingsData.aiProvider === 'deepseek') {
+      return await callDeepSeek(fullPrompt);
+    } else if (settingsData.aiProvider === 'openrouter') {
+      return await callOpenRouter(fullPrompt);
     } else {
       throw new Error('Provedor de IA não suportado');
     }
@@ -189,6 +194,77 @@ async function callAnthropic(prompt) {
   
   const data = await response.json();
   return data.content[0].text.trim();
+}
+
+/**
+ * Chama a API da DeepSeek (R1)
+ * @param {string} prompt - O prompt preparado
+ * @returns {Promise<string>} - A resposta gerada
+ */
+async function callDeepSeek(prompt) {
+  const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${settingsData.apiKey}`
+    },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      messages: [
+        { role: 'system', content: 'Você é um assistente profissional que ajuda a redigir respostas formais e adequadas para o ambiente de trabalho. Suas respostas devem ser claras, objetivas e em tom profissional.' },
+        { role: 'user', content: prompt }
+      ],
+      max_tokens: 500,
+      temperature: 0.7
+    })
+  });
+  
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(`Erro da API DeepSeek: ${errorData.error?.message || response.statusText}`);
+  }
+  
+  const data = await response.json();
+  return data.choices[0].message.content.trim();
+}
+
+/**
+ * Chama a API do OpenRouter
+ * @param {string} prompt - O prompt preparado
+ * @returns {Promise<string>} - A resposta gerada
+ */
+async function callOpenRouter(prompt) {
+  const model = settingsData.openrouterModel || 'openai/gpt-4o';
+  
+  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${settingsData.apiKey}`,
+      'HTTP-Referer': 'chrome-extension://full-fill',
+      'X-Title': 'Full Fill - Extensão para Chrome'
+    },
+    body: JSON.stringify({
+      model: model,
+      messages: [
+        { 
+          role: 'system', 
+          content: 'Você é um assistente profissional que ajuda a redigir respostas formais e adequadas para o ambiente de trabalho. Suas respostas devem ser claras, objetivas e em tom profissional.' 
+        },
+        { role: 'user', content: prompt }
+      ],
+      max_tokens: 500,
+      temperature: 0.7
+    })
+  });
+  
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(`Erro da API OpenRouter: ${errorData.error?.message || response.statusText}`);
+  }
+  
+  const data = await response.json();
+  return data.choices[0].message.content.trim();
 }
 
 // Ouvinte para instalação da extensão

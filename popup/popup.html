@@ -91,6 +91,24 @@
           <select id="aiProvider" name="aiProvider" class="form-control">
             <option value="openai">OpenAI (GPT-4)</option>
             <option value="anthropic">Anthropic (Claude)</option>
+            <option value="deepseek">DeepSeek (R1)</option>
+            <option value="openrouter">OpenRouter (Múltiplos Modelos)</option>
+          </select>
+        </div>
+        
+        <div class="form-group model-selection" id="openrouterModelGroup" style="display: none;">
+          <label for="openrouterModel">Modelo OpenRouter</label>
+          <select id="openrouterModel" name="openrouterModel" class="form-control">
+            <option value="openai/gpt-4o">OpenAI GPT-4o</option>
+            <option value="anthropic/claude-3-opus">Anthropic Claude 3 Opus</option>
+            <option value="anthropic/claude-3-sonnet">Anthropic Claude 3 Sonnet</option>
+            <option value="google/gemini-pro">Google Gemini Pro</option>
+            <option value="google/gemini-1.5-flash">Google Gemini 1.5 Flash (Free)</option>
+            <option value="meta-llama/llama-3-70b-instruct">Meta Llama 3 70B</option>
+            <option value="mistralai/mistral-large">Mistral Large</option>
+            <option value="deepseek/deepseek-coder">DeepSeek Coder</option>
+            <option value="deepseek/deepseek-chat">DeepSeek Chat</option>
+            <option value="deepseek/deepseek-llm-67b-chat">DeepSeek LLM 67B</option>
           </select>
         </div>
         

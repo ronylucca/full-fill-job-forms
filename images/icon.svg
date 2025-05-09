@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Círculo de fundo -->
+  <circle cx="64" cy="64" r="60" fill="#3498db" />
+  
+  <!-- Raio estilizado -->
+  <path d="M64 20 L40 72 L56 72 L48 108 L88 56 L64 56 Z" fill="white" />
+  
+  <!-- Borda em volta do círculo -->
+  <circle cx="64" cy="64" r="60" fill="none" stroke="#2980b9" stroke-width="4" />
+</svg> 
