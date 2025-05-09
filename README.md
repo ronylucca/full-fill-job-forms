@@ -1,140 +1,140 @@
-# Full Fill - Extensão para o Chrome
+# Full Fill - Chrome Extension
 
-Uma extensão para Google Chrome que permite preencher formulários automaticamente e gerar respostas profissionais usando IA.
+A Google Chrome extension that allows you to automatically fill forms and generate professional responses using AI.
 
-## Funcionalidades
+## Features
 
-- **Cadastro de dados pessoais**: Armazene seus dados pessoais e profissionais de forma segura no navegador.
-- **Preenchimento automático**: Detecte automaticamente campos em formulários web e preencha-os com um clique.
-- **Respostas com IA**: Use IA para gerar respostas profissionais ao selecionar um texto em qualquer página.
-- **Suporte a múltiplos provedores de IA**: Escolha entre OpenAI (GPT-4), Anthropic (Claude), DeepSeek (R1) ou OpenRouter (acesso a múltiplos modelos) para gerar respostas.
+- **Personal data storage**: Store your personal and professional information securely in your browser.
+- **Automatic form filling**: Automatically detect fields in web forms and fill them with a click.
+- **AI-powered responses**: Use AI to generate professional responses when selecting text on any page.
+- **Multiple AI providers support**: Choose between OpenAI (GPT-4), Anthropic (Claude), DeepSeek (R1), or OpenRouter (access to multiple models) to generate responses.
 
-## Instalação
+## Installation
 
-### Método 1: Carregar extensão descompactada (para desenvolvimento)
+### Method 1: Load unpacked extension (for development)
 
-1. Clone ou baixe este repositório para seu computador.
-2. Abra o Google Chrome e navegue até `chrome://extensions/`.
-3. Ative o "Modo do desenvolvedor" no canto superior direito.
-4. Clique em "Carregar sem compactação" e selecione a pasta do projeto.
-5. A extensão deve aparecer na barra de ferramentas do Chrome.
+1. Clone or download this repository to your computer.
+2. Open Google Chrome and navigate to `chrome://extensions/`.
+3. Enable "Developer mode" in the top right corner.
+4. Click "Load unpacked" and select the project folder.
+5. The extension should appear in the Chrome toolbar.
 
-### Método 2: Empacotar e instalar (para uso pessoal)
+### Method 2: Package and install (for personal use)
 
-1. Clone ou baixe este repositório para seu computador.
-2. Abra o Google Chrome e navegue até `chrome://extensions/`.
-3. Ative o "Modo do desenvolvedor" no canto superior direito.
-4. Clique em "Empacotar extensão" e selecione a pasta do projeto.
-5. Instale o arquivo .crx gerado arrastando-o para a página de extensões do Chrome.
+1. Clone or download this repository to your computer.
+2. Open Google Chrome and navigate to `chrome://extensions/`.
+3. Enable "Developer mode" in the top right corner.
+4. Click "Pack extension" and select the project folder.
+5. Install the generated .crx file by dragging it to the Chrome extensions page.
 
-## Configuração
+## Configuration
 
-### Dados pessoais
+### Personal data
 
-1. Clique no ícone da extensão na barra de ferramentas do Chrome.
-2. Na aba "Meu Perfil", preencha seus dados pessoais e profissionais.
-3. Clique em "Salvar" para armazenar suas informações.
+1. Click on the extension icon in the Chrome toolbar.
+2. In the "My Profile" tab, fill in your personal and professional information.
+3. Click "Save" to store your information.
 
-### Configuração da IA
+### AI Configuration
 
-1. Clique no ícone da extensão na barra de ferramentas do Chrome.
-2. Navegue até a aba "Configurações".
-3. Selecione o provedor de IA de sua preferência (OpenAI, Anthropic, DeepSeek ou OpenRouter).
-4. Insira sua chave de API:
-   - Para OpenAI: Obtenha em [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-   - Para Anthropic: Obtenha em [https://console.anthropic.com/](https://console.anthropic.com/)
-   - Para DeepSeek: Obtenha em [https://platform.deepseek.com/](https://platform.deepseek.com/)
-   - Para OpenRouter: Obtenha em [https://openrouter.ai/keys](https://openrouter.ai/keys)
-5. Se você escolher o OpenRouter, selecione também o modelo específico que deseja usar.
-6. Clique em "Salvar" para armazenar suas configurações.
+1. Click on the extension icon in the Chrome toolbar.
+2. Navigate to the "Settings" tab.
+3. Select your preferred AI provider (OpenAI, Anthropic, DeepSeek, or OpenRouter).
+4. Enter your API key:
+   - For OpenAI: Get it at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+   - For Anthropic: Get it at [https://console.anthropic.com/](https://console.anthropic.com/)
+   - For DeepSeek: Get it at [https://platform.deepseek.com/](https://platform.deepseek.com/)
+   - For OpenRouter: Get it at [https://openrouter.ai/keys](https://openrouter.ai/keys)
+5. If you choose OpenRouter, also select the specific model you want to use.
+6. Click "Save" to store your settings.
 
-## Como usar
+## How to use
 
-### Preenchimento automático de formulários
+### Automatic form filling
 
-1. Navegue até um site com formulários.
-2. Os campos compatíveis com seus dados armazenados serão destacados.
-3. Um ícone ⚡ aparecerá nos campos detectados.
-4. Clique no ícone para preencher o campo automaticamente.
+1. Navigate to a website with forms.
+2. Fields compatible with your stored data will be highlighted.
+3. A ⚡ icon will appear in detected fields.
+4. Click on the icon to automatically fill the field.
 
-### Geração de respostas com IA
+### Generating AI responses
 
-1. Em qualquer página web, selecione um texto para o qual deseja uma resposta.
-2. Clique com o botão direito e selecione "Gerar resposta profissional com IA".
-3. Aguarde enquanto a IA gera uma resposta.
-4. Quando a resposta aparecer, você pode:
-   - Copiar a resposta para a área de transferência
-   - Inserir a resposta diretamente em um campo de texto ativo
+1. On any web page, select text for which you want a response.
+2. Right-click and select "Generate professional response with AI".
+3. Wait while the AI generates a response.
+4. When the response appears, you can:
+   - Copy the response to the clipboard
+   - Insert the response directly into an active text field
 
-## Segurança e privacidade
+## Security and privacy
 
-- **Armazenamento local**: Seus dados pessoais são armazenados apenas localmente no seu navegador.
-- **Chaves de API**: Suas chaves de API são armazenadas localmente e usadas apenas para as solicitações aos serviços de IA.
-- **Sem rastreamento**: A extensão não rastreia sua navegação ou envia dados para servidores externos (exceto as solicitações diretas às APIs de IA).
+- **Local storage**: Your personal data is stored only locally in your browser.
+- **API keys**: Your API keys are stored locally and used only for requests to AI services.
+- **No tracking**: The extension does not track your browsing or send data to external servers (except direct requests to AI APIs).
 
-## Sobre o OpenRouter
+## About OpenRouter
 
-O OpenRouter é um serviço que oferece acesso unificado a centenas de modelos de IA através de um único endpoint, gerenciando automaticamente fallbacks e selecionando as opções mais econômicas. Através desta opção, você pode acessar modelos de várias empresas como OpenAI, Anthropic, Google, Meta, e Mistral, sem precisar criar contas em cada um desses serviços.
+OpenRouter is a service that offers unified access to hundreds of AI models through a single endpoint, automatically handling fallbacks and selecting the most cost-effective options. Through this option, you can access models from various companies such as OpenAI, Anthropic, Google, Meta, and Mistral, without having to create accounts with each of these services.
 
-A extensão inclui suporte para diversos modelos através do OpenRouter, incluindo:
+The extension includes support for various models through OpenRouter, including:
 - OpenAI GPT-4o
-- Anthropic Claude 3 Opus e Sonnet
-- Google Gemini Pro e Gemini 1.5 Flash (versão gratuita)
+- Anthropic Claude 3 Opus and Sonnet
+- Google Gemini Pro and Gemini 1.5 Flash (free version)
 - Meta Llama 3 70B
 - Mistral Large
-- DeepSeek Coder, Chat e LLM 67B
+- DeepSeek Coder, Chat and LLM 67B
 
-Ao usar o OpenRouter, você precisa apenas de uma única chave de API para acessar todos esses modelos, simplificando o gerenciamento de credenciais e permitindo escolher o modelo mais adequado para cada situação.
+When using OpenRouter, you only need a single API key to access all these models, simplifying credential management and allowing you to choose the most suitable model for each situation.
 
-## Requisitos para desenvolvimento
+## Generating the extension icons
 
-- Google Chrome versão 88 ou superior
-- Conta em um provedor de IA (OpenAI, Anthropic, DeepSeek ou OpenRouter) com chave de API válida
+The extension includes a tool to generate icons based on the lightning bolt symbol (⚡) used in the interface:
 
-## Solução de problemas
-
-### A extensão não detecta campos no formulário
-
-- Verifique se você preencheu corretamente seus dados na aba "Meu Perfil".
-- Alguns sites usam estruturas de formulário não-padrão que podem não ser detectadas automaticamente.
-
-### Erro ao gerar resposta com IA
-
-- Verifique se a chave de API está correta e válida.
-- Confirme se o provedor de IA selecionado está disponível e sem interrupções.
-- Se estiver usando o OpenRouter, verifique se o modelo selecionado está disponível.
-- Verifique se sua conexão com a internet está funcionando corretamente.
-
-## Limitações conhecidas
-
-- A detecção automática de campos pode não funcionar em sites com estruturas de formulário altamente personalizadas.
-- O preenchimento automático pode não funcionar em formulários dinâmicos que usam JavaScript para validação.
-- A inserção de respostas da IA funciona melhor em campos de texto simples e áreas de texto.
-
-## Desenvolvimento futuro
-
-Melhorias planejadas para versões futuras:
-
-- Suporte a mais provedores de IA
-- Melhoria na detecção de campos de formulário
-- Interface para edição por lotes de múltiplos perfis
-- Sincronização entre dispositivos (via conta Google)
-- Suporte a preenchimento de formulários complexos (endereços, cartões de crédito, etc.)
-
-## Gerando os ícones da extensão
-
-A extensão inclui uma ferramenta para gerar ícones baseados no símbolo de raio (⚡) que é utilizado na interface:
-
-1. Abra o arquivo `images/generate_icons.html` em seu navegador
-2. Os ícones serão gerados automaticamente em três tamanhos: 16x16, 48x48 e 128x128 pixels
-3. Clique nos links "Baixar" abaixo de cada ícone para salvar o PNG correspondente
-4. Substitua os arquivos placeholder na pasta `images` pelos ícones baixados:
+1. Open the `images/generate_icons.html` file in your browser
+2. The icons will be automatically generated in three sizes: 16x16, 48x48, and 128x128 pixels
+3. Click on the "Download" links below each icon to save the corresponding PNG
+4. Replace the placeholder files in the `images` folder with the downloaded icons:
    - `icon16.png`
    - `icon48.png`
    - `icon128.png`
 
-Os ícones são gerados utilizando HTML Canvas e podem ser baixados diretamente do navegador, sem necessidade de ferramentas externas.
+The icons are generated using HTML Canvas and can be downloaded directly from the browser, without the need for external tools.
 
-## Licença
+## Development requirements
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes. 
+- Google Chrome version 88 or higher
+- Account with an AI provider (OpenAI, Anthropic, DeepSeek, or OpenRouter) with a valid API key
+
+## Troubleshooting
+
+### The extension doesn't detect fields in the form
+
+- Check if you correctly filled your data in the "My Profile" tab.
+- Some sites use non-standard form structures that may not be automatically detected.
+
+### Error generating AI response
+
+- Check if the API key is correct and valid.
+- Confirm if the selected AI provider is available and without interruptions.
+- If using OpenRouter, check if the selected model is available.
+- Check if your internet connection is working properly.
+
+## Known limitations
+
+- Automatic field detection may not work on sites with highly customized form structures.
+- Automatic filling may not work on dynamic forms that use JavaScript for validation.
+- Inserting AI responses works best in simple text fields and text areas.
+
+## Future development
+
+Planned improvements for future versions:
+
+- Support for more AI providers
+- Improved form field detection
+- Interface for batch editing of multiple profiles
+- Cross-device synchronization (via Google account)
+- Support for filling complex forms (addresses, credit cards, etc.)
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details. 

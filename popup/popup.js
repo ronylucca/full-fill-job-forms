@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Elementos da UI
+  // UI Elements
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabContents = document.querySelectorAll('.tab-content');
   const profileForm = document.getElementById('profileForm');
@@ -7,22 +7,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const aiProviderSelect = document.getElementById('aiProvider');
   const openrouterModelGroup = document.getElementById('openrouterModelGroup');
   
-  // Adiciona evento de clique nas abas
+  // Add click event to tabs
   tabButtons.forEach(button => {
     button.addEventListener('click', () => {
       const tabId = button.getAttribute('data-tab');
       
-      // Remove classe active de todas as abas
+      // Remove active class from all tabs
       tabButtons.forEach(btn => btn.classList.remove('active'));
       tabContents.forEach(content => content.classList.remove('active'));
       
-      // Adiciona classe active na aba selecionada
+      // Add active class to selected tab
       button.classList.add('active');
       document.getElementById(tabId).classList.add('active');
     });
   });
   
-  // Adiciona evento para mostrar/ocultar o seletor de modelo do OpenRouter
+  // Add event to show/hide OpenRouter model selector
   aiProviderSelect.addEventListener('change', () => {
     if (aiProviderSelect.value === 'openrouter') {
       openrouterModelGroup.style.display = 'block';
@@ -31,24 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Carrega dados salvos ao abrir o popup
+  // Load saved data when opening popup
   loadProfileData();
   loadSettingsData();
   
-  // Adiciona evento para salvar perfil
+  // Add event to save profile
   profileForm.addEventListener('submit', (e) => {
     e.preventDefault();
     saveProfileData();
   });
   
-  // Adiciona evento para salvar configurações
+  // Add event to save settings
   settingsForm.addEventListener('submit', (e) => {
     e.preventDefault();
     saveSettingsData();
   });
   
   /**
-   * Salva os dados do perfil no armazenamento local
+   * Saves profile data to local storage
    */
   function saveProfileData() {
     const profileData = {
@@ -67,12 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     chrome.storage.sync.set({ profileData }, () => {
-      showAlert('Perfil salvo com sucesso!', 'success');
+      showAlert('Profile saved successfully!', 'success');
     });
   }
   
   /**
-   * Carrega os dados do perfil do armazenamento local
+   * Loads profile data from local storage
    */
   function loadProfileData() {
     chrome.storage.sync.get('profileData', (result) => {
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   /**
-   * Salva as configurações no armazenamento local
+   * Saves settings to local storage
    */
   function saveSettingsData() {
     const settingsData = {
@@ -107,9 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     chrome.storage.sync.set({ settingsData }, () => {
-      showAlert('Configurações salvas com sucesso!', 'success');
+      showAlert('Settings saved successfully!', 'success');
       
-      // Notifica o script de background sobre as alterações
+      // Notify background script about changes
       chrome.runtime.sendMessage({
         action: 'settingsUpdated',
         settings: settingsData
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   /**
-   * Carrega as configurações do armazenamento local
+   * Loads settings from local storage
    */
   function loadSettingsData() {
     chrome.storage.sync.get('settingsData', (result) => {
@@ -127,12 +127,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('aiProvider').value = data.aiProvider || 'openai';
         document.getElementById('apiKey').value = data.apiKey || '';
         
-        // Configura o modelo do OpenRouter se estiver definido
+        // Configure OpenRouter model if defined
         if (data.openrouterModel) {
           document.getElementById('openrouterModel').value = data.openrouterModel;
         }
         
-        // Exibe ou oculta o seletor de modelo do OpenRouter conforme necessário
+        // Show or hide OpenRouter model selector as needed
         if (data.aiProvider === 'openrouter') {
           openrouterModelGroup.style.display = 'block';
         } else {
@@ -148,32 +148,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   /**
-   * Exibe uma mensagem de alerta temporária
-   * @param {string} message - Mensagem a ser exibida
-   * @param {string} type - Tipo de alerta (success ou error)
+   * Shows a temporary alert message
+   * @param {string} message - Message to display
+   * @param {string} type - Alert type (success or error)
    */
   function showAlert(message, type) {
-    // Remove alertas anteriores
+    // Remove previous alerts
     const existingAlert = document.querySelector('.alert');
     if (existingAlert) {
       existingAlert.remove();
     }
     
-    // Cria um novo alerta
+    // Create a new alert
     const alert = document.createElement('div');
     alert.className = `alert ${type}`;
     alert.textContent = message;
     
-    // Adiciona o alerta antes do primeiro elemento na página
+    // Add the alert before the first element on the page
     const container = document.querySelector('.container');
     container.insertBefore(alert, container.firstChild);
     
-    // Adiciona a classe 'show' para exibi-lo
+    // Add 'show' class to display it
     setTimeout(() => {
       alert.classList.add('show');
     }, 10);
     
-    // Remove o alerta após 3 segundos
+    // Remove the alert after 3 seconds
     setTimeout(() => {
       alert.classList.remove('show');
       setTimeout(() => {
