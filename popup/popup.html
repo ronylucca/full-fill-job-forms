@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Fill - Preenchimento de Formulários</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Full Fill</h1>
+    <div class="tabs">
+      <button class="tab-button active" data-tab="profile">Meu Perfil</button>
+      <button class="tab-button" data-tab="settings">Configurações</button>
+    </div>
+    
+    <div id="profile" class="tab-content active">
+      <form id="profileForm">
+        <div class="form-group">
+          <label for="name">Nome Completo</label>
+          <input type="text" id="name" name="name" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Telefone</label>
+          <input type="tel" id="phone" name="phone" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="address">Endereço</label>
+          <input type="text" id="address" name="address" class="form-control">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group half">
+            <label for="city">Cidade</label>
+            <input type="text" id="city" name="city" class="form-control">
+          </div>
+          <div class="form-group half">
+            <label for="state">Estado</label>
+            <input type="text" id="state" name="state" class="form-control">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group half">
+            <label for="zipCode">CEP</label>
+            <input type="text" id="zipCode" name="zipCode" class="form-control">
+          </div>
+          <div class="form-group half">
+            <label for="country">País</label>
+            <input type="text" id="country" name="country" class="form-control">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="company">Empresa</label>
+          <input type="text" id="company" name="company" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="jobTitle">Cargo</label>
+          <input type="text" id="jobTitle" name="jobTitle" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="website">Website</label>
+          <input type="url" id="website" name="website" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="linkedin">LinkedIn</label>
+          <input type="url" id="linkedin" name="linkedin" class="form-control">
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" id="saveProfile" class="btn primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+    
+    <div id="settings" class="tab-content">
+      <form id="settingsForm">
+        <div class="form-group">
+          <label for="aiProvider">Provedor de IA</label>
+          <select id="aiProvider" name="aiProvider" class="form-control">
+            <option value="openai">OpenAI (GPT-4)</option>
+            <option value="anthropic">Anthropic (Claude)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="apiKey">Chave da API</label>
+          <input type="password" id="apiKey" name="apiKey" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="autoFillEnabled">
+            <input type="checkbox" id="autoFillEnabled" name="autoFillEnabled" checked>
+            Ativar preenchimento automático
+          </label>
+        </div>
+        
+        <div class="form-group">
+          <label for="aiContextMenu">
+            <input type="checkbox" id="aiContextMenu" name="aiContextMenu" checked>
+            Ativar menu de contexto "Gerar resposta profissional com IA"
+          </label>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" id="saveSettings" class="btn primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 
